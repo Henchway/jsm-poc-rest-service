@@ -18,11 +18,12 @@ import java.util.List;
 public class AssetController {
 
     @GetMapping
-    public ResponseEntity<List<Asset>> getAssets(@RequestParam int numberOfAssets, @RequestParam String token) {
+    public ResponseEntity<List<Asset>> getAssets(@RequestParam(defaultValue = "100") int numberOfAssets,
+                                                 @RequestParam(required = false) String token) {
 
-        if (!token.equals("1234")) {
-            throw new NotAuthorizedException("Invalid token");
-        }
+//        if (!token.equals("1234")) {
+//            throw new NotAuthorizedException("Invalid token");
+//        }
 
         List<Asset> assetList = new ArrayList<>(numberOfAssets);
         for (int i = 0; i < numberOfAssets; i++) {
