@@ -17,7 +17,7 @@ import java.util.List;
 @Log4j2
 public class AssetController {
 
-    @GetMapping
+    @GetMapping(produces = "application/json; charset=utf-8")
     public ResponseEntity<List<Asset>> getAssets(@RequestParam(defaultValue = "100") int numberOfAssets,
                                                  @RequestParam(required = false) String token) {
 
